@@ -26,7 +26,6 @@ words = paragraph.split(/\s+/);
 for (i = 0; i < words.length; i++) {
   words[i] = words[i].replace(/\W/g,'').toLowerCase();
 }
-
 /* your code ends here */
 
 // Question 1 check
