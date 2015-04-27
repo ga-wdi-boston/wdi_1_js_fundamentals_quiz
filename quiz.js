@@ -21,11 +21,6 @@ ullamcorper mauris vitae condimentum volutpat.";
 var words = [];
 
 /* your code starts here */
-words = paragraph.split(/\s+/);
-
-for (i = 0; i < words.length; i++) {
-  words[i] = words[i].replace(/\W/g,'').toLowerCase();
-}
 
 /* your code ends here */
 
@@ -41,13 +36,7 @@ var uniqueWordsAsKeys = {};
 var uniqueWords = [];
 
 /* your code starts here */
-for (i = 0; i < words.length; i++) {
-  uniqueWordsAsKeys[words[i]] = true;
-}
 
-for (var k in uniqueWordsAsKeys) {
-  uniqueWords.push(k);
-}
 /* your code ends here */
 
 // Question 2 check - begin
@@ -89,21 +78,14 @@ longAndShort['longest'] = '';
 longAndShort['shortest'] = paragraph;
 
 /* your code starts here */
-for (i=0; i < words.length; i++) {
-  if (words[i].length > longAndShort['longest'].length) {
-    longAndShort['longest'] = words[i];
-  }
-  if (words[i].length < longAndShort['shortest'].length) {
-    longAndShort['shortest'] = words[i];
-  }
-}
+
 /* your code ends here */
 
 //Question 3 check
 if (longAndShort['longest'] !== 'sollicitudin') {
-  console.log("The 'longest' isn't ");
+  console.log("The 'longest' isn't 'sollicitudin'");
 };
 
 if (longAndShort['shortest'] !== 'a') {
-  console.log("The 'shortest' isn't ");
+  console.log("The 'shortest' isn't 'a'");
 };
