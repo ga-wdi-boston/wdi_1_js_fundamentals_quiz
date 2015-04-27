@@ -101,9 +101,9 @@ for (i=0; i < words.length; i++) {
 
 //Question 3 check
 if (longAndShort['longest'] !== 'sollicitudin') {
-  console.log("The 'longest' isn't ");
+  console.log("The 'longest' isn't 'sollicitudin'");
 };
 
 if (longAndShort['shortest'] !== 'a') {
-  console.log("The 'shortest' isn't ");
+  console.log("The 'shortest' isn't 'a'");
 };
