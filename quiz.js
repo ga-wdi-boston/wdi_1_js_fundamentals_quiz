@@ -21,7 +21,10 @@ ullamcorper mauris vitae condimentum volutpat.";
 var words = [];
 
 /* your code starts here */
-
+words = paragraph.split(/\s+/);
+for (var i = 0; i<words.length; i++){
+  words[i] = words[i].toLowerCase().replace(/\W+/, '');
+}
 /* your code ends here */
 
 // Question 1 check
@@ -33,9 +36,21 @@ if (words.length !== 111) {
 // write code to store the elements from the words array as keys in the associative array uniqueWordsAsKeys
 // then store those keys in the array uniqueWords
 var uniqueWordsAsKeys = {};
+
 var uniqueWords = [];
 
 /* your code starts here */
+for (var o = 0; o<words.length; o++){
+  var tempWord = words[o];
+  uniqueWordsAsKeys[tempWord] = true;
+}
+
+for (var key in uniqueWordsAsKeys){
+  uniqueWords.push(key);
+}
+console.log(uniqueWords);
+
+
 
 /* your code ends here */
 
@@ -78,7 +93,18 @@ longAndShort['longest'] = '';
 longAndShort['shortest'] = paragraph;
 
 /* your code starts here */
+for (var key in uniqueWordsAsKeys){
+  if (key.length > longAndShort['longest'].length){
+    longAndShort['longest'] = key;
+  }
+}
+for (var key in uniqueWordsAsKeys){
+  if (key.length < longAndShort['shortest'].length){
+    longAndShort['shortest'] = key;
+  }
+}
 
+console.log(longAndShort);
 /* your code ends here */
 
 //Question 3 check
