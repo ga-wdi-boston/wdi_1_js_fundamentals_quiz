@@ -22,6 +22,12 @@ var words = [];
 
 /* your code starts here */
 
+words = paragraph.split(" ");
+
+for(var i = 0; i < words.length; i ++){
+  words[i] = words[i].replace(/\W+/ , '').toLowerCase();
+}
+
 /* your code ends here */
 
 // Question 1 check
@@ -36,6 +42,17 @@ var uniqueWordsAsKeys = {};
 var uniqueWords = [];
 
 /* your code starts here */
+
+for(var i = 0; i < words.length; i ++){
+  uniqueWordsAsKeys[words[i]] = true
+
+}
+
+for(var key in uniqueWordsAsKeys){
+  uniqueWords.push(key);
+}
+
+console.log(uniqueWords);
 
 /* your code ends here */
 
@@ -78,6 +95,18 @@ longAndShort['longest'] = '';
 longAndShort['shortest'] = paragraph;
 
 /* your code starts here */
+
+for( var i = 0; i < uniqueWords.length; i++){
+  if(longAndShort['longest'].length < uniqueWords[i].length){
+    longAndShort['longest'] = uniqueWords[i];
+  }
+
+  if (longAndShort['shortest'].length > uniqueWords[i].length){
+    longAndShort['shortest'] = uniqueWords[i];
+  }
+}
+
+console.log(longAndShort);
 
 /* your code ends here */
 
