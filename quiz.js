@@ -21,6 +21,7 @@ ullamcorper mauris vitae condimentum volutpat.";
 var words = [];
 
 /* your code starts here */
+words = paragraph.toLowerCase().replace(/[.,]/g, '').split(/\s+/)
 
 /* your code ends here */
 
@@ -36,6 +37,16 @@ var uniqueWordsAsKeys = {};
 var uniqueWords = [];
 
 /* your code starts here */
+var index;
+for(index in words)
+{
+  uniqueWordsAsKeys[words[index]] = true;
+}
+
+for(index in uniqueWordsAsKeys)
+{
+  uniqueWords.push(index);
+}
 
 /* your code ends here */
 
@@ -78,6 +89,17 @@ longAndShort['longest'] = '';
 longAndShort['shortest'] = paragraph;
 
 /* your code starts here */
+for(index in uniqueWordsAsKeys)
+{
+  if(index.length > longAndShort['longest'].length)
+  {
+    longAndShort['longest'] = index;
+  }
+  else if(index.length < longAndShort['shortest'].length)
+  {
+    longAndShort['shortest'] = index;
+  }
+}
 
 /* your code ends here */
 
