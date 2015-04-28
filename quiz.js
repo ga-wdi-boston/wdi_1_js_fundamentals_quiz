@@ -21,6 +21,11 @@ ullamcorper mauris vitae condimentum volutpat.";
 var words = [];
 
 /* your code starts here */
+words = paragraph.split(/\s+/);
+
+for (var i = 0; i < words.length; i++) {
+  words[i] = words[i].replace(/\W+/,'').toLowerCase();
+}
 
 /* your code ends here */
 
@@ -32,14 +37,33 @@ if (words.length !== 111) {
 // Question 2
 // write code to store the elements from the words array as keys in the associative array uniqueWordsAsKeys
 // then store those keys in the array uniqueWords
+
 var uniqueWordsAsKeys = {};
 var uniqueWords = [];
 
 /* your code starts here */
 
+var key;
+for (key in words){
+  if (uniqueWordsAsKeys[words[key]] === undefined){
+    uniqueWordsAsKeys[words[key]] = 1;
+  }
+  else{
+    uniqueWordsAsKeys[words[key]]++;
+  }
+}
+
+for (key in uniqueWordsAsKeys){
+  uniqueWords.push(key);
+}
+
+
+
 /* your code ends here */
 
 // Question 2 check - begin
+
+
 var sortedUniqueWords = [ 'a', 'ac', 'adipiscing', 'aliquam', 'aliquet',
 'amet', 'ante', 'arcu', 'at', 'augue', 'commodo','condimentum',
 'consectetur', 'consequat', 'cras', 'dapibus', 'dolor', 'dui', 'duis',
@@ -73,15 +97,48 @@ if (uniqueWords.length === sortedUniqueWords.length) {
 // write code to determine the longest and shortest words in the uniqueWords array
 // use an associative array to store the words with the keys 'longest' and 'shortest'
 // name the associative array variable "longAndShort" for the check below
-var longAndShort = {};
-longAndShort['longest'] = '';
-longAndShort['shortest'] = paragraph;
+var shortList = [];
+var longList = [];
+//longAndShort['longest'] = '';
+//longAndShort['shortest'] = paragraph;
 
 /* your code starts here */
+
+
+//attempt to make work if there are multiple shortest and longest words
+var shortest = 100;
+var longest = 0;
+for (var i = 0; i < uniqueWords.length; i++) {
+  if (uniqueWords[i].length < shortest){
+    shortest = uniqueWords[i].length
+  }
+}
+
+for (var i = 0; i < uniqueWords.length; i++) {
+  if (uniqueWords[i].length === shortest){
+    shortList.push(uniqueWords[i]);
+  }
+}
+
+console.log(shortList);
+
+for (var i = 0; i < uniqueWords.length; i++) {
+  if (uniqueWords[i].length > longest){
+    longest = uniqueWords[i].length
+  }
+}
+
+for (var i = 0; i < uniqueWords.length; i++) {
+  if (uniqueWords[i].length === longest){
+  longList.push(uniqueWords[i]);
+  }
+}
+console.log(longList);
 
 /* your code ends here */
 
 //Question 3 check
+/*
 if (longAndShort['longest'] !== 'sollicitudin') {
   console.log("The 'longest' isn't 'sollicitudin'");
 };
@@ -89,3 +146,6 @@ if (longAndShort['longest'] !== 'sollicitudin') {
 if (longAndShort['shortest'] !== 'a') {
   console.log("The 'shortest' isn't 'a'");
 };
+
+
+*/
