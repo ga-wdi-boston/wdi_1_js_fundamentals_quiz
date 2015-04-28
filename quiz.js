@@ -21,13 +21,21 @@ ullamcorper mauris vitae condimentum volutpat.";
 var words = [];
 
 /* your code starts here */
+words = paragraph.split(/\s+/);
 
-/* your code ends here */
+for (var i = 0; i < words.length; i++) {
+ words[i] = words[i].replace(/\W+/,'').toLowerCase();
+}
+
+console.log(words);
+
+/* your code ends here*/
+
 
 // Question 1 check
 if (words.length !== 111) {
   console.log("The word count is not 111")
-};
+}
 
 // Question 2
 // write code to store the elements from the words array as keys in the associative array uniqueWordsAsKeys
@@ -37,7 +45,31 @@ var uniqueWords = [];
 
 /* your code starts here */
 
+var key;
+
+for (var i = 0; i < words.length; i++) {
+   if (uniqueWordsAsKeys[words[i]] === undefined) {
+        uniqueWordsAsKeys[words[i]] = 1;
+      } else {
+        uniqueWordsAsKeys[words[i]]++;
+      }
+}
+
+/*or
+ for (var i = 0; i < words.length; i++){
+  uniqueWordsAsKeys[words[i]] = true;
+}
+*/
+
+for (key in uniqueWordsAsKeys) {
+    uniqueWords.push(key);
+}
+
+console.log(uniqueWordsAsKeys);
+
+
 /* your code ends here */
+
 
 // Question 2 check - begin
 var sortedUniqueWords = [ 'a', 'ac', 'adipiscing', 'aliquam', 'aliquet',
@@ -74,14 +106,32 @@ if (uniqueWords.length === sortedUniqueWords.length) {
 // use an associative array to store the words with the keys 'longest' and 'shortest'
 // name the associative array variable "longAndShort" for the check below
 var longAndShort = {};
-longAndShort['longest'] = '';
-longAndShort['shortest'] = paragraph;
+longAndShort['longest'] = ''; //shortest possible value we could have. need somewhere to start
+longAndShort['shortest'] = paragraph; //longest possible value we could have.
 
 /* your code starts here */
+
+
+
+for (var i = 0; i < uniqueWords.length; i++) {
+  if (uniqueWords[i].length > longAndShort['longest'].length)  {
+      longAndShort['longest'] = uniqueWords[i];
+  }  else if (uniqueWords[i].length < longAndShort['shortest'].length) {
+      longAndShort['shortest'] = uniqueWords[i];
+  }
+
+}
+
+
+
+
+
+
 
 /* your code ends here */
 
 //Question 3 check
+
 if (longAndShort['longest'] !== 'sollicitudin') {
   console.log("The 'longest' isn't 'sollicitudin'");
 };
